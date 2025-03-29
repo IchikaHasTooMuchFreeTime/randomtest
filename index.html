@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution Repository</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-lightbulb"></i> Solution Repository</h1>
+            <p>Store and organize your problem solutions in one place</p>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search solutions...">
+                    <button id="searchBtn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="categories">
+                    <h3>Categories</h3>
+                    <ul id="categoryList">
+
+                    </ul>
+                </div>
+                <button id="addCategoryBtn" class="btn"><i class="fas fa-plus"></i> Add Category</button>
+            </div>
+
+            <div class="content-area">
+                <div id="welcomeView" class="view">
+                    <h2>Welcome to your Solution Repository</h2>
+                    <p>Select a category from the sidebar or create a new one to get started.</p>
+                    <div class="stats">
+                        <div class="stat-card">
+                            <i class="fas fa-folder"></i>
+                            <span id="categoryCount">0</span> Categories
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-file-alt"></i>
+                            <span id="solutionCount">0</span> Solutions
+                        </div>
+                    </div>
+                </div>
+
+                <div id="categoryView" class="view hidden">
+                    <div class="category-header">
+                        <h2 id="currentCategoryTitle">Category</h2>
+                        <div class="actions">
+                            <button id="addSolutionBtn" class="btn"><i class="fas fa-plus"></i> Add Solution</button>
+                            <button id="editCategoryBtn" class="btn"><i class="fas fa-edit"></i> Edit</button>
+                            <button id="deleteCategoryBtn" class="btn danger"><i class="fas fa-trash"></i> Delete</button>
+                        </div>
+                    </div>
+                    <div id="solutionsList" class="solutions-list">
+
+                    </div>
+                </div>
+
+                <div id="solutionView" class="view hidden">
+                    <div class="solution-header">
+                        <h2 id="currentSolutionTitle">Solution</h2>
+                        <div class="actions">
+                            <button id="editSolutionBtn" class="btn"><i class="fas fa-edit"></i> Edit</button>
+                            <button id="deleteSolutionBtn" class="btn danger"><i class="fas fa-trash"></i> Delete</button>
+                            <button id="backToCategoryBtn" class="btn"><i class="fas fa-arrow-left"></i> Back</button>
+                        </div>
+                    </div>
+                    <div id="solutionContent" class="solution-content">
+
+                    </div>
+                </div>
+
+                <div id="editView" class="view hidden">
+                    <h2 id="editViewTitle">Edit</h2>
+                    <form id="editForm">
+                        <div class="form-group">
+                            <label for="editTitle">Title</label>
+                            <input type="text" id="editTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editDescription">Description</label>
+                            <textarea id="editDescription" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editContent">Content</label>
+                            <textarea id="editContent" rows="10" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="editTags">Tags (comma separated)</label>
+                            <input type="text" id="editTags">
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" id="cancelEditBtn" class="btn">Cancel</button>
+                            <button type="submit" class="btn primary">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="addCategoryModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Add New Category</h2>
+            <form id="addCategoryForm">
+                <div class="form-group">
+                    <label for="categoryName">Category Name</label>
+                    <input type="text" id="categoryName" required>
+                </div>
+                <div class="form-group">
+                    <label for="categoryDescription">Description (optional)</label>
+                    <textarea id="categoryDescription" rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn primary">Create Category</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="confirmModal" class="modal hidden">
+        <div class="modal-content small">
+            <h2 id="confirmModalTitle">Confirm Action</h2>
+            <p id="confirmModalMessage">Are you sure you want to perform this action?</p>
+            <div class="form-actions">
+                <button type="button" id="confirmCancelBtn" class="btn">Cancel</button>
+                <button type="button" id="confirmActionBtn" class="btn danger">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
