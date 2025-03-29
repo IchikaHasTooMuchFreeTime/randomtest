@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Example Problem - Solution</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Example Problem</h1>
+            <a href="../index.html" class="back-btn">Back to Problems</a>
+        </header>
+
+        <main>
+            <section class="problem-solution">
+                <h2>Description</h2>
+                <p>This is an example problem to demonstrate the functionality.</p>
+                
+                <h2>Solution</h2>
+                <div class="solution-content">This is the example solution. Edit or add new problems when logged in.</div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 Problem Solutions. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
