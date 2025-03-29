@@ -1,4 +1,82 @@
 
+const PASSWORD = "Easp0rts"; 
+
+
+const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+const loginModal = document.getElementById('loginModal');
+const loginForm = document.getElementById('loginForm');
+const loginPassword = document.getElementById('loginPassword');
+
+
+let isAuthenticated = false;
+
+
+function checkAuth() {
+    isAuthenticated = localStorage.getItem('solutionRepoAuth') === 'true';
+    updateAuthUI();
+}
+
+
+function updateAuthUI() {
+    if (isAuthenticated) {
+        loginBtn.classList.add('hidden');
+        logoutBtn.classList.remove('hidden');
+        document.querySelectorAll('.edit-control').forEach(el => el.classList.remove('hidden'));
+        addCategoryBtn.classList.remove('hidden');
+    } else {
+        loginBtn.classList.remove('hidden');
+        logoutBtn.classList.add('hidden');
+        document.querySelectorAll('.edit-control').forEach(el => el.classList.add('hidden'));
+        addCategoryBtn.classList.add('hidden');
+    }
+}
+
+
+function login(password) {
+    if (password === PASSWORD) {
+        isAuthenticated = true;
+        localStorage.setItem('solutionRepoAuth', 'true');
+        updateAuthUI();
+        hideModal(loginModal);
+        loginPassword.value = '';
+        return true;
+    }
+    alert('Incorrect password');
+    return false;
+}
+
+
+function logout() {
+    isAuthenticated = false;
+    localStorage.removeItem('solutionRepoAuth');
+    updateAuthUI();
+    showWelcomeView();
+}
+
+
+function setupEventListeners() {
+    // Add these new listeners
+    loginBtn.addEventListener('click', () => showModal(loginModal));
+    logoutBtn.addEventListener('click', logout);
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        login(loginPassword.value);
+    });
+    
+
+}
+
+
+function init() {
+    loadData();
+    checkAuth(); 
+    renderCategories();
+    updateStats();
+    setupEventListeners();
+}
+
+
 let repositoryData = {
     categories: []
 };
