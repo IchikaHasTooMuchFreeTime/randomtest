@@ -1,4 +1,4 @@
-/* Global Styles */
+
 :root {
     --primary-color: #4a6fa5;
     --secondary-color: #6b8cae;
@@ -384,3 +384,19 @@ header p {
         margin-right: 0;
     }
 }
+
+
+.hidden {
+    display: none !important;
+}
+
+header {
+    position: relative;
+}
+
+#authControls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
