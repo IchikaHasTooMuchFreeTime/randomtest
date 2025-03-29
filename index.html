@@ -3,63 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InformaalFrog Staff solutions</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Informaal staff</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1><i class="fas fa-lightbulb"></i> InformaalFrog Staff</h1>
-            <p>By Ichika</p>
-            <div id="authControls">
-                <button id="loginBtn" class="btn"><i class="fas fa-sign-in-alt"></i> Login</button>
-                <button id="logoutBtn" class="btn hidden"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            <h1>Informaal Staff</h1>
+            <div id="auth-section">
+                <button id="login-btn" class="auth-btn">Login</button>
+                <button id="logout-btn" class="auth-btn hidden">Logout</button>
             </div>
         </header>
 
-        <div class="main-content">
-            <div class="sidebar">
-                <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="Search solutions...">
-                    <button id="searchBtn"><i class="fas fa-search"></i></button>
-                </div>
-                <div class="categories">
-                    <h3>Categories</h3>
-                    <ul id="categoryList">
-
-                    </ul>
-                </div>
-                <button id="addCategoryBtn" class="btn hidden"><i class="fas fa-plus"></i> Add Category</button>
-            </div>
-
-            <div class="content-area">
-
-
+        <div id="login-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Login</h2>
+                <form id="login-form">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                    
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                    
+                    <button type="submit">Login</button>
+                    <p id="login-error" class="error-message"></p>
+                </form>
             </div>
         </div>
+
+        <main>
+            <section class="problem-list">
+                <h2>Available Solutions</h2>
+                <div id="problems-container"></div>
+                <button id="add-problem-btn" class="hidden">Add New Problem</button>
+            </section>
+
+            <div id="add-problem-modal" class="modal hidden">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Add New Problem</h2>
+                    <form id="add-problem-form">
+                        <label for="problem-title">Title:</label>
+                        <input type="text" id="problem-title" required>
+                        
+                        <label for="problem-description">Description:</label>
+                        <textarea id="problem-description" required></textarea>
+                        
+                        <label for="problem-solution">Solution:</label>
+                        <textarea id="problem-solution" required></textarea>
+                        
+                        <button type="submit">Add Problem</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; I sat here for an hour to make this.</p>
+        </footer>
     </div>
 
-
-    <div id="loginModal" class="modal hidden">
-        <div class="modal-content small">
-            <span class="close-modal">&times;</span>
-            <h2>Login</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" required>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn primary">Login</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-
-
-
+    <script src="auth.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
